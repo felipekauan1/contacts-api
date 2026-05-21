@@ -39,12 +39,7 @@ class ContactController extends Controller
 
     public function update(UpdateContactRequest $request, Contact $contact)
     {
-        $contact->update([
-            'name' => $request->input('name'),
-            'phone' => $request->input('phone'),
-            'email' => $request->input('email'),
-            'category' => $request->input('category'),
-        ]);
+        $contact->update($request->only(['name', 'phone', 'email', 'category']));
 
         return response()->json([
             'message' => 'Contato alterado com sucesso!',
