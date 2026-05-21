@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreContactRequest;
+use App\Http\Requests\UpdateContactRequest;
 use Illuminate\Http\Request;
 use App\Models\Contact;
 
 class ContactController extends Controller
 {
-    public function store(Request $request)
+    public function store(StoreContactRequest $request)
     {
         $contact = Contact::create([
             'name' => $request->input('name'),
@@ -35,7 +37,7 @@ class ContactController extends Controller
         ]);
     }
 
-    public function update(Request $request, Contact $contact)
+    public function update(UpdateContactRequest $request, Contact $contact)
     {
         $contact->update([
             'name' => $request->input('name'),
