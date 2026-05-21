@@ -46,7 +46,7 @@ class ContactController extends Controller
 
         return response()->json([
             'message' => 'Contato alterado com sucesso!',
-            'contato' => $contact,
+            'contact' => $contact,
         ]);
     }
 
